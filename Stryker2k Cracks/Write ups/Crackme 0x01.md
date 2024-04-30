@@ -2,7 +2,7 @@
 
 Hey! Let's do something...
 
-Starting off with this crackme our EIP starts at the entry point due to the settings we set in the last challenge. If you reset the settings or dont want the settings look for this comment:  OptionalHeader.AddressOfEntryPoint
+Starting off with this crackme our EIP starts at the entry point due to the settings we set in the last challenge. If you reset the settings or don't want the settings look for this comment:  OptionalHeader.AddressOfEntryPoint
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/15ea5768-a170-4274-bb93-916d304ddfd8)
 
