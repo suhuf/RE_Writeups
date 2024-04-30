@@ -33,7 +33,7 @@ When we put in 1111 we stop at our first few break points, lets press continue u
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/00961f85-cc52-4ba9-a58a-adff197984b7)
 
-When we reach here we see in the left corner that jump was not taken, this means that we did not return a 1 that would allow us to jump to the "Password Ok" function. When we press the arrow again the EIP points to the invalid password pritn function and the program closes
+When we reach here we see in the left corner that jump was not taken, this means that we did not return the right value that would allow us to jump to the "Password Ok" function. When we press the arrow again the EIP points to the invalid password pritn function and the program closes
 
 It is clear to us that whatever is going on in that strcmp (String compare function) and test eax function is determining whether we can make the jump or not. We also can see however that the value being written to esp+4 is the number 250382
 
