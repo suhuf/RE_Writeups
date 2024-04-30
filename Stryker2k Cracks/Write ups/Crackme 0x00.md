@@ -3,7 +3,7 @@
 
 Hey! Let's get straight to the work!
 
-Starting out, we are going to be using x32 debug for this EXE. In order to make finding the entry point easier I reccomend setting only the "Entry Breakpoint" to be checked under preferences:
+Starting out, we are going to be using x32 debug for this EXE. In order to make finding the entry point easier you can set only the "Entry Breakpoint" to be checked under preferences:
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/9e3a281a-7add-4ec6-a9a5-8dcc0fa35846)
 
