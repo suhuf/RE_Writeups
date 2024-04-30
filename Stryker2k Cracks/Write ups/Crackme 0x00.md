@@ -41,7 +41,7 @@ lets see what happens when we put this totally not suspicious string in:
 
 We run the program and put in 250382 and this time we set a break point at the test eax function and stop pressing when we get to the test eax function before the jump
 
-![image](https://github.com/suhuf/RE_Writeups/assets/105312929/dcb2b0c7-f9f5-4f13-86d6-b0cf409b114b)
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/97046522-4bd7-4fbc-89fd-4a0cb12cff05)
 
 In the right corner we can see what was written to the eax  register, here it is a 0. 
 
