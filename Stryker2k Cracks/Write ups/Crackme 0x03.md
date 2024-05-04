@@ -111,7 +111,7 @@ If it is confirmed to not be equal to the length of the string, the JAE (jump an
 
 if it is equal to the the length of the string then it jumps past the deobfuscation portion.
 
-First thing done in the deobfuscation part is ...
+First thing done in the deobfuscation part is ... To be continued
 
 
 
