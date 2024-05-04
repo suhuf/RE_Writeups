@@ -58,17 +58,39 @@ Then at the deobfuscation portion I am going to set a breakpoint on leave so it 
 
 Now lets run the program in x32 with an incorrect password.
 
+We press next until we reach the prompt for a password, let's do 12345 again since we know it is invalid.
 
+Now we keep pressing the arrow until we get to a cmp instruction breakpoint before we reach the obfuscated string selection.
 
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/0febbc4d-220b-496e-976a-ff3ef083773e)
 
+Before we proceed in this, in the left side of the screen we notice that we can see the value in eax that ecp+C is being compared too
 
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/01b06cf8-e607-477c-a8f9-53ee76aed54e)
 
+It is the same password as the last crack me in hexadecimal form, 52B24. We should take note of this as this is most likely the password.
 
+We press the arrow button slowly and notice that the program takes the path that stores the **"Lqydolg#Sdvvzrug$"** string this means that this is the invalid string. We now know the work flow for the invalid string, and consequently, also the valid string.
 
+We also can keep pressing the arrow through the for loop (the function is iterating for each variable on the string) and we can see the "Password Invalid" text being loaded into a register
 
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/13a724e7-8480-4820-b2c6-92ecae1c1be0).
 
+Now that we know the workflow better now, let's solve the problem via the password we unconvered earlier; 52B24.
 
+We convert this to decimal format using a programming calculator: 
 
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/e94dd4f3-cd40-4ab1-8731-f23675111d85)
+
+338,724 is our number let's put it in the program and see what happens.
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/d48304f0-adfb-4872-a3c9-8d8d3679e437)
+
+We see that a jump is taken to **"Sdvvzrug#RN$$$#=,"** this time instead of the old string.
+
+After spamming the arrow button a few times we also can see the "Password OK" text being loaded.
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/6a1f5d60-a257-4c43-ac7e-510a2fbf6341)
 
 
 **Solution 2 (more detailed):**
