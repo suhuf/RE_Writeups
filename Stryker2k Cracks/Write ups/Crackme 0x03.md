@@ -94,3 +94,28 @@ After spamming the arrow button a few times we also can see the "Password OK" te
 
 
 **Solution 2 (more detailed):**
+
+Here we are going to go directly into the obfuscation function and try to see if we can reverse it.
+
+First action that is done is the string is moved from the esp (top of the stack) to the ebp
+
+The esp is then subtracted 98, this means that the memory at esp was freed. Then 0 is moved to ebp-7c.
+
+Then the string is moved back to esp inorder to be called for the strlen function
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/2bec067a-b197-4ba3-940d-8f34979e81bb)
+
+Now here, first the eax value is being compared to ebp-7C which we already know is zero from earlier. While the eax is the length of the string. 
+
+If it is confirmed to not be equal to the length of the string, the JAE (jump and execute) is not performed
+
+if it is equal to the the length of the string then it jumps past the deobfuscation portion.
+
+First thing done in the deobfuscation part is ...
+
+
+
+
+
+
+
