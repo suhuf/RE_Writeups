@@ -29,12 +29,22 @@ I reccomend this fork of UABE as the original UABE development is dead. And I al
 The tool is used for reverse engineering software and others and is functionally a must have for Unity compiled games.
 
 
+**APK Extraction process:**
+
+words
+
+
+**APK editing process:**
+
+words
+
+**Uncovering .DLLs with Il2cpdumper:**
+
+words
 
 
 
-
-
-
+(This should be at the end)
 
 **APK signing process:**
 
