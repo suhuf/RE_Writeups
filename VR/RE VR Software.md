@@ -4,7 +4,7 @@ Hey guys whats happening!
 
 This writeup is going to be a bit of a tangent from my other writeups and act as more of a guide than anything else. Here I am going to try to write a simple guide on how to modify and install custom software on the Quest 2 Headset.
 
-Before this I would like to preface that there are **alot** of steps and a **lot** of things that can go wrong when doing this during preparation phase. As a result I refer you top the other guides on the internet that are much more descriptive than this one and more professionally
+Before this I would like to preface that there are **a lot** of steps and **a lot** of things that can go wrong when doing this during preparation phase. As a result I refer you top the other guides on the internet that are much more descriptive than this one and more professionally
 
 maintained. The reason why this is being written on my github is that this excercise includes using digital forensics/reverse engineering tools and also helps you get more used to interacting with actual hardware and .Apk files. Without further ado let's try introducing some essential tools.
 
