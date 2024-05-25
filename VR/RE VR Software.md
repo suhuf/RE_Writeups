@@ -46,6 +46,10 @@ words
 
 (This should be at the end)
 
+
+
+
+
 **APK signing process:**
 
 The software and games on the Quest 2 headset the .APK File format. This is a very well known file format and as a result modifying software on the quest is surprisingly easy. However, despite the ease in modifiying software, getting the quest to accept the software after said modifications
@@ -157,6 +161,9 @@ We are going to use **uber-apk-signer** which will both sign and align the apk q
 It should ask for a password and possibly an alias, In the future I will probably be adding a visual here **(//c)**
 
 And with that a new apk should be made that is signed with v2 and compatible with Quest.
+
+
+
 
 
 **Installing Modded APK to Quest:**
