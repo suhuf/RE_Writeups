@@ -168,6 +168,13 @@ And with that a new apk should be made that is signed with v2 and compatible wit
 
 **Installing Modded APK to Quest:**
 
+Judging by the fact you have made it this far, I am assuming you are now a bit familiar with how sidequest works, for installing the new apk to Quest 2 we make sure the headset is connected and select "**Install APK file from folder on computer**"
+
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/943e6028-0329-4bff-9ac6-cb000afb634c)
+
+(TBC)
+
 
 
 
