@@ -133,11 +133,36 @@ The keytool exe is located in the bin directory of your Java installtion, genera
 
 Now in this directory we run the cmd prompt and put in this command
 
-keytool.exe -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias **my-key-alias**
+**keytool.exe -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias** **my-key-alias**
+
+you can change the my-release-key.jks to a better name if you so like.
 
 change the my-key-alias to whatever you can remember, this is going to be needed in the future.
 
-**(tbc)**
+You are then going to be asked for a password (make this something you can remember as we are going to need it in the future) and some annoying questions, you can skip the questions via pressing enter but you are going to need to answer atleast one question.
+
+It should look similar to this:
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/623c504b-d381-46b5-a7ad-f02a617990cb)
+
+
+After this a file will be saved as <chosenname>.jks in the folder that we made it in unless you specified another folder.
+
+Now that we have a key we can sign the apk. 
+
+We are going to use **uber-apk-signer** which will both sign and align the apk quickly, this is the command we will be using:
+
+**java -jar uber-apk-signer-1.3.0.jar --ks "C:\Program Files\Java\jdk-21\bin\my-release-key.jks" --apks "<Path to your apk>"**
+
+It should ask for a password and possibly an alias, In the future I will probably be adding a visual here **(//c)**
+
+And with that a new apk should be made that is signed with v2 and compatible with Quest.
+
+
+**Installing Modded APK to Quest:**
+
+
+
 
 
 
