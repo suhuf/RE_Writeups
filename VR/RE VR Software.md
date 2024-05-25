@@ -78,7 +78,7 @@ Archive format: zip
 
 Compression level: 0 - Store
 
-And if encrypt file names is checked uncheck it
+And if encrypt file names is checked, uncheck it.
 
 Now in the archive section choose the file name with the .zip extension at the end then press ok.
 
@@ -90,6 +90,72 @@ Now going back to the decompiled apk directory copy all of the files **except** 
 
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/d34b19cc-945c-46ad-a3a4-580660b78c76)
+
+Now if everything worked properly there should be a loading screen that is compressing the new assets you have added into your respective .zip file. It will have the name you have chosen for it earlier.
+
+Now in order to 'convert' the .zip file into a .apk you just need to rename the file's extension from .zip to .apk.
+
+And now you have packaged your new modded apk for the Quest 2!  ... .....not really. Here is where the hard stuff starts happening.
+
+
+As of now, the Quest 2 obligates that all .APKs are signed via the **v2 android apk signing scheme** if the apk is not signed via this the .apk will not install on to the quest. You can even test this yourself if you want via Sidequest via the apk installation instructions here: (**link something here)**
+
+
+
+**Side Note:**
+
+In the event you do try the installation you will get an error that looks like this on sidequest: ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/a1871e5d-ebf5-43ca-b4db-0808ba31517f)
+
+
+
+"A task failed. Check the tasks screen for more info. 2024-05-19T06-08-25.093Z_72.apk: /data/local/tmp/_stream.apk could not be installed [INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed collecting certificates 
+
+for /data/app/vmdl231055552.tmp/base.apk: Failed to collect certificates from /data/app/vmdl231055552.tmp/base.apk: META-INF/BS.SF indicates /data/app/vmdl231055552.tmp/base.apk is signed using APK Signature Scheme v2, but no such signature was found. Signature stripped?]"
+
+What it is saying is that it needs the .apk to be signed via the v2 scheme and it isnt.
+
+
+So what we need to do is sign and also align the new .apk, if you are already familiar with android development and are able to do this via your own method I reccomend doing that. I however was not familiar with this process so I tried to use the quickest method I could think of.
+
+Here is where we are going to use **uber-apk-signer**, this will speed up the process of signing the the new modded apk and re-aligning it. Follow the installation instructions here: (https://github.com/patrickfav/uber-apk-signer?tab=readme-ov-file).
+
+Once you have the tool installed **and its dependencies installed** we canmove to the first step of signing which is generating a keystore. **And yes, as of 2024 you do need to generate and use a keystore when signing .apks for the quest 2**, the default debug keystore does not work in my experience and generates an error.
+
+
+For this we will be using keytool which is already installed with the JDK development kit, a dependencies of uber apk signer. If you are unsure if you have this installed, open a CMD prompt and type in java. If it returns this you're good.
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/bceaf36c-3cd5-4577-80b8-1c9999e2bf11)
+
+
+The keytool exe is located in the bin directory of your Java installtion, generally speaking it should be this: **C:\Program Files\Java\jdk-<version>\bin** and within there you should find a file named keytool. If not, you are going to have to check the JDK's installation path.
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/193d42c3-509b-4604-8916-ac14dd9cd767)
+
+Now in this directory we run the cmd prompt and put in this command
+
+keytool.exe -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias **my-key-alias**
+
+change the my-key-alias to whatever you can remember, this is going to be needed in the future.
+
+**(tbc)**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
