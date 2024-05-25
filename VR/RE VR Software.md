@@ -14,15 +14,15 @@ Depending on what is being modified, a game on Quest 2 or other software, we wil
 
 **Tools:**
 
-**Sidequest** (Link): (Agnostic and practically a must have for this excercise)    This is a very well made sideloader and file manager for the Quest2. With it you can backup, modify access, manage, and extract a plethroa different files within the Quest2 headset on your PC. This 
+**Sidequest**: (Agnostic and practically a must have for this excercise)    This is a very well made sideloader and file manager for the Quest2. With it you can backup, modify access, manage, and extract a plethroa different files within the Quest2 headset on your PC. This also provides an easy way to send ADB commands to your headset **Note:** Make sure you are using the **Advanced** installer when installing or else you are going to miss out on a lot of functionality
 
 tool is functionally a must have. You can follow the the isntallation instructions on their website (//c)
 
-**AssetStudio** (Link) (For unity compiled software, mostly games): This tool is an asset viewer/extracter that makes modifying Unity compiled games much easier. It is used to analyze cooked .asset files and is able to read bundled files 
+**AssetStudio** ([Link](https://github.com/Perfare/AssetStudio)) (For unity compiled software, mostly games): This tool is an asset viewer/extracter that makes modifying Unity compiled games much easier. It is used to analyze cooked .asset files and is able to read bundled files 
 For Unity compiled games, this and UABE (Unity Asset Bundle Extractor) are a must. This tool itself however does have its limitations. Of the most glaring of these is that it will **not** replace assets on its own. For that UABE is neccessary.
 
-**UABE** (Link) (For unity compiled software, mostly games): To keep it simple, it is basically asset studio but with much more functionality and a less intuitive UI. It takes a lot more effort to find specific assets with this tool but It has much more functionality in extracting, replacing, and even directly editing assets.
-I reccomend this fork of UABE as the original UABE development is dead. And I also reccomend trying UABENEXT3 for some functionality that is not present in the stable version. (//c)
+**UABEA** ([Link](https://github.com/nesrak1/UABEA)) (For unity compiled software, mostly games): To keep it simple, it is basically Asset Studio but with much more functionality and a less intuitive UI. It takes a lot more effort to find specific assets with this tool but It has much more functionality in extracting, replacing, and even directly editing assets.
+I reccomend this fork of UABE as the original UABE seems to be inactive. And I also reccomend trying UABEANEXT3 for some functionality that is not present in the stable version. (//c)
 
 **DNSpy**  (Link) (Agnostic, useful for everything): This tool is a must have and is probably one of my favorite tools (if only I was good with it). This tool is an intuitive well organized .DLL analyzer that will allow you to easily read, search, edit, and replace .DLL files.
 
