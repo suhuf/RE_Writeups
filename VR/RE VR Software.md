@@ -173,7 +173,48 @@ Judging by the fact you have made it this far, I am assuming you are now a bit f
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/943e6028-0329-4bff-9ac6-cb000afb634c)
 
-(TBC)
+Select in the respective diretory the **SIGNED and Aligned** .apk file with whatever name you have chosen or the default name if default.
+
+**Note:**
+
+With this the app should be installed, in the event there are errors here are a few errors that can occur and their respective solutions:
+
+**
+[-124: Failed parse during installPackageLI: Targeting R+ (version 30 and above) 
+
+
+
+requires the resources.arsc of installed APKs to be stored uncompressed and aligned on a 4-byte boundary]:**
+
+This error is caused by either the alignment being off or resource.arsc being compressed with the other parts of the apk, to fix the resource file issue follow the steps above. For a basic rundown, you click add with the resource.arsc file without any compression and then copy the other files into the new zip file.
+
+You can fix the other error by checking the .apks alignment **zipalign -c -v 4 application.apk** you may need to resign the apk after doing this.
+ 
+
+**[INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed collecting certificates 
+
+
+
+for /data/app/vmdl231055552.tmp/base.apk: Failed to collect certificates from /data/app/vmdl231055552.tmp/base.apk: META-INF/BS.SF indicates /data/app/vmdl231055552.tmp/base.apk is signed using APK Signature Scheme v2, but no such signature was found. Signature stripped?]**:
+
+This error is caused due to the APK not being signed. Quest 2 Does not allow the installation of .APKs without signatures, this also is caused due to the original META-INF folder not being deleted. Solution is to delete the old META-INF directory and then sign the apk with its new signature, outlined above. 
+
+Important to note that even if the apk is signed with the default debug key it will not be accepted for installtion, a person key needs to be made.
+
+
+**Checking APK against blacklist...**:
+
+This is an error that is caused via sidequest's protections and not ADB or Quest Restrictions. Sidequest uses this as an anti-piracy measure and blocks .apks that are known to be pirated. Regardless of personal opinions on this, I ran into this error when trying to mod an APK without internet. If the APK does not pass this blacklist the sidequest will refuse to install, this however proves a problem when you do not have internet as there is not a local copy of the blacklsit downloaded on the system.
+
+
+Regardless can be bypassed by using ADB directly. Either use ADB on your own system or use sidequest's custom ADB commands tool (it's really all the same).
+
+(Insert picture)
+
+
+
+
+
 
 
 
