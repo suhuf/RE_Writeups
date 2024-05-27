@@ -225,7 +225,7 @@ Regardless can be bypassed by using ADB directly. Either use ADB on your own sys
 
 Here you enter:
 
-**adb install -g "<Full APK path>"**
+**adb install -g "FullAPKpath"**
 
 And you should be able to install without the blacklist check. 
 
