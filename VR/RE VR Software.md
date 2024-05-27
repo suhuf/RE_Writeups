@@ -33,15 +33,37 @@ The tool is used for reverse engineering software and others and is functionally
 
 The APK extraction process is very simple with sidequest, however the setup to get it working is a far more difficult endeavour. As a basic run down you first need to enable developer mode on your VR headset **prior** to being able to do anything with sidequest, you then need too follow the respective instructions for installing sidequest on the headset and etc. This entire process goes way beyond the scope of this guide/writeup so we are going to focus on the extraction process in this section.
 
+First thing, go into to settings on sidequest and scroll down to 'Sidequest stuff' and click on 
+
 Assuming everything else has already been set up, turn on the headset and enter the respective password if you have one and then plug it in to the PC. 
 
-On the top left of sidequest you should have a green circle showing that the headset has been connected:
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/813e6748-75d9-44f1-b597-7659b780493e)
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/a3be2773-0ccb-47cf-b52c-359f978968e1)
 
+You then go on currently installed apps:
 
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/5587543f-e7f2-4460-bda0-0ed0ed23542a)
+
+And select the gear icon on the respective app according to its name, lets say in this case I want to extract the APK of virtual desktop:
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/ecf6819e-75f8-4b66-bd07-5bbc623a9e67)
+
+Now a new popup should appear, When you are ready to backup press "Backup APK File" and then after that click the gear icon again and press open backups
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/bb47f106-7d1e-4b04-8ee9-098fbe8b11a0)
+
+In the APK folder there should be an APK file of your desired software.
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/02a0d928-46f9-489b-9b62-680479519f73)
+
+Now that we have extracted it, how do we access it? The good thing .Apk files is that they are extracted the same way as zip files, just rename the file's extension to .zip and then extract the contents.
+
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/4b5a6b04-fafa-4f04-a37a-4a7e3df8e1b0)
+
+Now we have all of the .APKs contents and you can start changing whatever you like.
 
 
 
@@ -225,7 +247,7 @@ Regardless can be bypassed by using ADB directly. Either use ADB on your own sys
 
 Here you enter:
 
-**adb install -g "FullAPKpath"**
+**adb install -g "Full APK path"**
 
 And you should be able to install without the blacklist check. 
 
