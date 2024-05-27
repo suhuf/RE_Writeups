@@ -31,7 +31,18 @@ The tool is used for reverse engineering software and others and is functionally
 
 **APK Extraction process:**
 
-words
+The APK extraction process is very simple with sidequest, however the setup to get it working is a far more difficult endeavour. As a basic run down you first need to enable developer mode on your VR headset **prior** to being able to do anything with sidequest, you then need too follow the respective instructions for installing sidequest on the headset and etc. This entire process goes way beyond the scope of this guide/writeup so we are going to focus on the extraction process in this section.
+
+Assuming everything else has already been set up, turn on the headset and enter the respective password if you have one and then plug it in to the PC. 
+
+On the top left of sidequest you should have a green circle showing that the headset has been connected:
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/813e6748-75d9-44f1-b597-7659b780493e)
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/a3be2773-0ccb-47cf-b52c-359f978968e1)
+
+
+
 
 
 **APK editing process:**
@@ -164,8 +175,6 @@ And with that a new apk should be made that is signed with v2 and compatible wit
 
 
 
-
-
 **Installing Modded APK to Quest:**
 
 Judging by the fact you have made it this far, I am assuming you are now a bit familiar with how sidequest works, for installing the new apk to Quest 2 we make sure the headset is connected and select "**Install APK file from folder on computer**"
@@ -191,11 +200,11 @@ This error is caused by either the alignment being off or resource.arsc being co
 You can fix the other error by checking the .apks alignment **zipalign -c -v 4 application.apk** you may need to resign the apk after doing this.
  
 
-**[INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed collecting certificates 
+[INSTALL_PARSE_FAILED_NO_CERTIFICATES: Failed collecting certificates 
 
 
 
-for /data/app/vmdl231055552.tmp/base.apk: Failed to collect certificates from /data/app/vmdl231055552.tmp/base.apk: META-INF/BS.SF indicates /data/app/vmdl231055552.tmp/base.apk is signed using APK Signature Scheme v2, but no such signature was found. Signature stripped?]**:
+for /data/app/vmdl231055552.tmp/base.apk: Failed to collect certificates from /data/app/vmdl231055552.tmp/base.apk: META-INF/BS.SF indicates /data/app/vmdl231055552.tmp/base.apk is signed using APK Signature Scheme v2, but no such signature was found. Signature stripped?]:
 
 This error is caused due to the APK not being signed. Quest 2 Does not allow the installation of .APKs without signatures, this also is caused due to the original META-INF folder not being deleted. Solution is to delete the old META-INF directory and then sign the apk with its new signature, outlined above. 
 
@@ -209,7 +218,17 @@ This is an error that is caused via sidequest's protections and not ADB or Quest
 
 Regardless can be bypassed by using ADB directly. Either use ADB on your own system or use sidequest's custom ADB commands tool (it's really all the same).
 
-(Insert picture)
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/d15c06a3-ac39-4983-a92b-5bfa85d97478)
+
+
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/09c2c703-cde8-481d-b72f-420be85319e0)
+
+Here you enter:
+
+**adb install -g "<Full APK path>"**
+
+And you should be able to install without the blacklist check. 
+
 
 
 
