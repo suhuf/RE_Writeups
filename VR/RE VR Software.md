@@ -44,7 +44,8 @@ Assuming everything else has already been set up, turn on the headset and enter 
 
 You then go on currently installed apps:
 
-![image](https://github.com/suhuf/RE_Writeups/assets/105312929/5587543f-e7f2-4460-bda0-0ed0ed23542a)
+![image](https://github.com/suhuf/RE_Writeups/assets/105312929/cd131fe7-d445-4608-9f2c-eb20313ac575)
+
 
 And select the gear icon on the respective app according to its name, lets say in this case I want to extract the APK of virtual desktop:
 
