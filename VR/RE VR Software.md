@@ -1,43 +1,39 @@
 **Draft**
 
-Hey guys whats happening! 
+Hey, guys what's happening! 
 
-This writeup is going to be a bit of a tangent from my other writeups and act as more of a guide than anything else. Here I am going to try to write a simple guide on how to modify and install custom software on the Quest 2 Headset.
+This write-up is going to be a bit of a tangent from my other writeups and act as more of a guide than anything else. Here, I am going to try to write a simple guide on how to modify and install custom software on the Quest 2 Headset.
 
-Before this I would like to preface that there are **a lot** of steps and **a lot** of things that can go wrong when doing this during preparation phase. As a result I refer you top the other guides on the internet that are much more descriptive than this one and more professionally maintained. 
+Before this, I would like to preface that there are **a lot** of steps and **a lot** of things that can go wrong during this process during the preparation phase. As a result, I refer you to check the other guides available on the internet that are much more descriptive than this one and more professionally maintained. 
 
+I am including this on my Github as the exercise includes using some digital forensics & reverse engineering tools and also helps you get more used to interacting with actual hardware and APK files. Without further ado let's try introducing some essential tools.
 
-The reason why this is being written on my github is that this excercise includes using digital forensics/reverse engineering tools and also helps you get more used to interacting with actual hardware and .Apk files. Without further ado let's try introducing some essential tools.
-
-
-Depending on what is being modified, a game on Quest 2 or other software, we will be using different tools. Here I am going to list all of the tools that I have typically used despite some of them note being as relevant
-
+The tools we do and do not use are very reliant on the specific app we are editing, here I am just going to list the tools that I have most commonly used when modifying on the Quest 2. It is possible all of these tools or none of these tools are optimal for the specific software you want to hack into.
 
 **Tools:**
 
-**Sidequest**: (Agnostic and practically a must have for this excercise)    This is a very well made sideloader and file manager for the Quest2. With it you can backup, modify access, manage, and extract a plethroa different files within the Quest2 headset on your PC. This also provides an easy way to send ADB commands to your headset **Note:** Make sure you are using the **Advanced** installer when installing or else you are going to miss out on a lot of functionality
+**Sidequest**: (Agnostic and practically a must-have for this exercise)    This is a side-loader and file manager for the Quest 2 with an easy-to-understand UI. With it, you can backup, modify access, manage, and extract different files within the Quest2 headset on your PC. This also provides an easy way to send ADB commands to your headset **Note:** Make sure you are using the **Advanced** installer when installing or else you are going to miss out on a lot of functionality.
+ Installation instructions are present on their website.
 
-tool is functionally a must have. You can follow the the isntallation instructions on their website (//c)
+**AssetStudio** ([Link](https://github.com/Perfare/AssetStudio)) (For Unity compiled software, mostly games): This tool is an asset viewer/extractor that makes modifying Unity compiled games much easier. It is used to analyze cooked .asset files and is able to read bundled files 
+For Unity-compiled games, this and UABE (Unity Asset Bundle Extractor) or UABEA (Updated fork of UABE)are a must. This tool itself however does have its limitations. Of the most glaring of these is that it will **not** replace assets on its own. For that UABE/UABEA is necessary.
 
-**AssetStudio** ([Link](https://github.com/Perfare/AssetStudio)) (For unity compiled software, mostly games): This tool is an asset viewer/extracter that makes modifying Unity compiled games much easier. It is used to analyze cooked .asset files and is able to read bundled files 
-For Unity compiled games, this and UABE (Unity Asset Bundle Extractor) are a must. This tool itself however does have its limitations. Of the most glaring of these is that it will **not** replace assets on its own. For that UABE is neccessary.
-
-**UABEA** ([Link](https://github.com/nesrak1/UABEA)) (For unity compiled software, mostly games): To keep it simple, it is basically Asset Studio but with much more functionality and a less intuitive UI. It takes a lot more effort to find specific assets with this tool but It has much more functionality in extracting, replacing, and even directly editing assets.
-I reccomend this fork of UABE as the original UABE seems to be inactive. And I also reccomend trying UABEANEXT3 for some functionality that is not present in the stable version. (//c)
+**UABEA** ([Link](https://github.com/nesrak1/UABEA)) (For unity compiled software, mostly games): To keep it simple, this is basically Asset Studio but with much more functionality and a bit more cluttered UI. It takes a lot more effort to find specific assets with this tool but it has much more functionality in extracting, replacing, and even directly editing assets.
+I recommend this fork of UABE (UABEA )as the original UABE seems to be inactive. And I also recommend trying UABEANEXT3 for some functionality that is not present in the stable version. ([Link](https://github.com/nesrak1/UABEANext/tree/master))
 
 **DNSpy**  (Link) (Agnostic, useful for everything): This tool is a must have and is probably one of my favorite tools (if only I was good with it). This tool is an intuitive well organized .DLL analyzer that will allow you to easily read, search, edit, and replace .DLL files.
 
-The tool is used for reverse engineering software and others and is functionally a must have for Unity compiled games.
+The tool is used for reverse engineering software and is functionally a must-have for Unity games compiled via Mono.
+
+**Il2cppDumper** (Link):
+Information
 
 
 **APK Extraction process:**
 
-The APK extraction process is very simple with sidequest, however the setup to get it working is a far more difficult endeavour. As a basic run down you first need to enable developer mode on your VR headset **prior** to being able to do anything with sidequest, you then need too follow the respective instructions for installing sidequest on the headset and etc. This entire process goes way beyond the scope of this guide/writeup so we are going to focus on the extraction process in this section.
+The APK extraction process is very simple with Sidequest, however, the setup to get it working can be a far more difficult endeavor. As a basic run down, you will first need to enable developer mode on your VR headset **prior** to being able to do anything with Sidequest, you then need to follow the respective instructions for installing Sidequest on the headset and etcetera. This entire process goes way beyond the scope of this guide/writeup (which is already 300 lines!) so we are going to focus on the extraction process in this section.
 
-First thing, go into to settings on sidequest and scroll down to 'Sidequest stuff' and click on 
-
-Assuming everything else has already been set up, turn on the headset and enter the respective password if you have one and then plug it in to the PC. 
-
+Assuming everything else has already been set up, turn on the headset and enter the respective password if you have one, and then plug it into the PC. 
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/813e6748-75d9-44f1-b597-7659b780493e)
 
@@ -47,7 +43,6 @@ You then go on currently installed apps:
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/cd131fe7-d445-4608-9f2c-eb20313ac575)
 
-
 And select the gear icon on the respective app according to its name, lets say in this case I want to extract the APK of virtual desktop:
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/ecf6819e-75f8-4b66-bd07-5bbc623a9e67)
@@ -56,37 +51,37 @@ Now a new popup should appear, When you are ready to backup press "Backup APK Fi
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/bb47f106-7d1e-4b04-8ee9-098fbe8b11a0)
 
-In the APK folder there should be an APK file of your desired software.
+In the APK folder, there should be an APK file of your desired software.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/02a0d928-46f9-489b-9b62-680479519f73)
 
-Now that we have extracted it, how do we access it? The good thing about .Apk files is that they are extracted the same way as zip files, just rename the file's extension to .zip and then extract the contents.
+Now that we have extracted it, how do we access it? The good thing about APK files is that they are extracted the same way as zip files, just rename the file's extension to .zip and then extract the contents via 7zip or another tool.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/4b5a6b04-fafa-4f04-a37a-4a7e3df8e1b0)
 
-Now we have all of the .APKs contents and you can start changing whatever you like.
-
-
+Now we have all of the APK contents and you can start changing whatever you like.
 
 **APK editing process:**
 
-The APK editing process is highly reliant on how the software was compiled. For unity built games for example, we would use the previously mentioned tools such as **AssetStudio**, **UABE**, and **DNSpy**.
+The APK editing process is highly reliant on how the software was compiled. For unity built games for example, we would use the previously mentioned tools such as **AssetStudio**, **UABE**, and **DNSpy**. Especially **DNSpy** if it was compiled via mono.
 
-For other software our editing processes might be a bit different, for example maybe a software we are working with is highly reliant on .DLLs and has an .Exe that interacts with said .DLLs. In this case we may just use DNSpy alone with x64/x32Dbg to try and uncover what we can change. In this scenario I am going to go through a bit of the editing process for Unity compiled software. As the majority of what you will be modding will most likely be compatible.
+For other software, our editing processes might be a bit different. For example, maybe the software we are working with is highly reliant on .DLLs and has an .Exe that interacts with said .DLLs. In this case, we may just use DNSpy alone with x64/x32Dbg to try and uncover what we can change. In this scenario, I am going to go through a bit of the editing process for Unity compiled software. As the majority of what you will be modding will most likely similar.
 
 **First step, Locate .assetfiles:**
 
-For things compiled with unity, .asset files are a core component of the ecossystem. Asset files can contain **Textures, Models, Audio Clips, Scripts** and more. As a result editing these files is essential for making mods we want. 
+For things compiled with unity, .asset files are a core component of the ecosystem. Asset files can contain **Textures, Models, Audio Clips, Scripts** and more. As a result editing these files is essential for making the modifications we want. 
 
-Depending on how the developer of the App made their architecture, it may take a bit of searching to find these **.asset** files. An easy way to check if a file is an asset file right off the bat is just by putting it into assetstudio and see if it accepts it.
+Depending on how the developer of the App made their architecture, it may take a bit of searching to find these **.asset** files. An easy way to check if a file is an asset file right off the bat is by just putting it into Asset Studio and checking if it accepts it.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/3373bfec-cd7c-4e03-a756-fd7381a0e703)
 
-This is the apk directory of a specific game that has a large amount of these files you can see here how the most obvious asset file should look like "**Sharedassets1"**, there however are other files in the directory that are also asset files but do not follow this naming scheme:
+This is the APK directory of a game that has a large amount of these files, you can see here how the most obvious asset file should look like; "**Sharedassets1.assets"**. However, this game also has other asset files that do not follow this obvious naming scheme.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/b3d3449d-50e0-4095-8995-d651c7a0bc12)
 
-Here for example, one giveaway that these are asset files however is that they also have a .resource copy. We can put this into Asset studio can confirm for ourselves:
+Here, for example, we see a large number of files that are suspiciously in the same directory as the earlier .asset file. 
+
+One giveaway that these are actually asset files as well is that they also have a .resource copy. We can put this into Asset Studio can confirm for ourselves:
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/63b82ee8-bec2-42b3-9a8c-861e001cd917)
 
@@ -95,29 +90,29 @@ Here for example, one giveaway that these are asset files however is that they a
 
 We can see here that this file named "f8805b958f82b224d82bdc4b5a50f20a" with no extension actually was an asset file and that it actually is storing over 2k assets. 
 
-We can also investigate the assets themselves, if they renderable by assetstudio, like 'Texture2d' Assets, you can filter these via the drop down menu on 'filter type'.
+We can also investigate the assets themselves, if they are renderable by Asset Studio. 'Texture 2d' assets, for example, are renderable by Asset Studio. You can filter your result to only contain a specific asset via the drop-down menu.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/512a0a03-ca8b-4589-bd92-d69465cb86a9)
 
-Example here is the unity logo,
+An example here is the Unity logo,
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/d28e06e8-bd2c-4a05-8393-d6292dd03c96)
 
-Another example with an asset that is specific to the app. Now one problem, how can we edit the asset? For each type of asset there is a different process in how we are going to have to deal with it, for example editing a game object/model is going to be a lot different from a texture or audio clip. In this case we are doing Texture2d which is relatively simple to edit.
+Another example with an asset that is specific to the app. Now the question occurs, how can we edit these assets? For each type of asset, there is a different process in how we are going to have to deal with it, for example editing a game object/model is going to be a lot different from a texture or audio clip. In this case we are doing Texture2d which is relatively simple to edit.
 
-We simply extract the asset, edit it with paint.net or something and then re-import it in via **UABEA/UABE** (Asset studio cannot replace assets.)
+We simply extract the asset, edit it with paint.net (or something else) and then re-import it in via **UABEA/UABE** (Asset studio cannot replace assets itself.)
 
-Let's test this by making the unity asset orange or something. We right click on the desired asset and click export ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/1d801854-044e-4fa3-8eb3-06268654f960)
+Let's test this by making the unity asset orange or something. We right-click on the desired asset and click export ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/1d801854-044e-4fa3-8eb3-06268654f960)
 
-And then we choose a directory and open the file in paint or whatever other software.
+And then we choose a directory and open the file in Paint or whichever other software.
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/75ff837c-acfe-4215-901a-d4c844e9425f)
 
 (Pretty lame ngl) 
 
-We can now save this and wait to re-import it in the future. 
+Now that we have finished editing this, we can save it and re-import it in the future. 
 
-Next step is getting the file name via Asset Studio, for less un-organized .APKs this step can be skipped as everything should be easy to remember but the .APK I used in this case is very chaotic. 
+The next step is getting the source file name via Asset Studio, for less un-organized .APKs this step can be skipped as everything should be easy to remember but the .APK I used in this case is very chaotic. 
 
 Right click on the desirec asset and choose 'Show original File'.
 
