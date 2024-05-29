@@ -112,30 +112,30 @@ And then we choose a directory and open the file in Paint or whichever other sof
 
 Now that we have finished editing this, we can save it and re-import it in the future. 
 
-The next step is getting the source file name via Asset Studio, for less un-organized .APKs this step can be skipped as everything should be easy to remember but the .APK I used in this case is very chaotic. 
+The next step is getting the source file name via Asset Studio, for more organized APKs this step can be skipped as everything should be easy to remember but the APK I am using in this case is not as organized. 
 
-Right click on the desirec asset and choose 'Show original File'.
+Right-click on the desired asset and choose 'Show original File'.
 
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/01c4da96-30da-4ca6-bbaf-9352a1c3f1e9)
 
-And it will then highlight the file source for you to check, take note of the file name or keep the file in hand because we are going to be using a new tool.
+It will then highlight the file source for you to check. Take note of the file name or keep the file in hand because we are going to be accessing it with a new tool
 
 ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/d913f063-0dd1-4808-9cdd-02576f7f5a8c)
 
-Now we open UABEA or UABE and we either directly drag it into the app or we manually put in the directory path via File --> Open
+Now we can either open UABEA/UABE and we directly drag it into the app or we can manually input the directory path via File --> Open
 
-Now the asset should load. \
+Now the asset should load.
 
-**Important note:** The asset cannot be accessed via AssetStudio and UABEA at the same time, if a new asset is being loaded via UABE while AssetStudio is reading the asset you are going to encounter and error and have to close UABEA before being able to do anything.
+**Important note:** The asset cannot be accessed via AssetStudio and UABEA at the same time, if a new asset is being loaded via UABE while AssetStudio is reading the asset you are going to encounter an error and have to close UABEA before being able to do anything. This can lead to a lot of progress being lost
 
  IE: When loading an asset with UABEA **CLOSE** AssetStudio first.
 
- Here we select the and click on plugins:
+ Here we select the asset and click on plugins:
 
  ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/f9e97e05-3a75-42af-ae26-29da6de9639d)
 
- Go to edit texture, click Ok then click on "Load" right next to texture. Now we click save and we also need to click save again for the actual file to save the newly loaded asset, or we can use CTRL-S. Now lets look into AssetStudio and see if it worked.
+Go to edit texture, click Ok, then click on "Load" right next to texture. Now we click save and we also need to click save again for the actual file to save the newly loaded asset, or we can use CTRL-S. Now let's look into AssetStudio and see if it worked.
 
  ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/f5099e36-e112-418c-8f07-33fb78e2ab01)
 
@@ -143,33 +143,28 @@ Now the asset should load. \
 
  ![image](https://github.com/suhuf/RE_Writeups/assets/105312929/b12bb6f3-360f-4986-97db-01ac0d70524a)
 
-Yep it worked. And we can also see that the sprite also changed when we changed the Texture2d. Now whenever this is rendered by the App it will show this. 
+Yep, it worked. And we can also see that the sprite also changed when we changed the Texture2d. Now whenever this is rendered by the App in the headset it will show this new image.
 
 
-This is basically how the less complicated parts of the modding process go, Asset is extraced via AssetStudio, it is edited via some software (really depends on the asset) and then the new asset is imported via UABEA. This however is an oversimplification, for things like audio files forexample there is more work that is done in the editing process such as converting the Audio to an .Fsb file which is then imported but it overall fits into this workflow.
+This is basically how the less complicated parts of the modding process go, Asset is extracted via AssetStudio, it is edited via some software (depending on asset type) and then the new asset is imported via UABEA. 
+
+This is however is an oversimplification, for things like audio files for example, there is more work that is done in the editing process such as converting a .wav/mp3 file to a .fsb file which is then imported. But overall, it fits into this workflow.
 
 
-The next section should cover how you can actually read and change some the code of these apps.
-
-
+The next section should cover how you can actually read and change some of the code of these apps.
 
 **Uncovering Dummy .DLLs with Il2cpdumper:**
 
 words
 
 
-
 (This should be at the end)
-
-
 
 
 
 **APK signing process:**
 
-The software and games on the Quest 2 headset the .APK File format. This is a very well known file format and as a result modifying software on the quest is surprisingly easy. However, despite the ease in modifiying software, getting the quest to accept the software after said modifications
-
-is where there are a lot more steps.
+The software and games on the Quest 2 use the APK File format. This is a very well-known file format and as a result, modifying software on the quest is surprisingly easy. However, despite the ease of modifying software, getting the quest to accept the software after said modifications is where there are a lot more steps.
 
 Firstly, we are going to need a few tools
 
@@ -179,9 +174,9 @@ A compression tool like **7zip** or **Winrar**
 
 Now getting to the repackaging process.
 
-In essence, all you have to do to the extracted files from your respective .APK is merely re-zip them via either WinRAR or 7zip, with just two exceptions. 
+In essence, all you have to do to the extracted files from your respective APK is merely re-zip them via either WinRAR or 7zip, with just two exceptions. 
 
-The first of the exceptions is the Meta-inf file if you can see one in your extracted .APK directory. This will need to be **deleted** before signing as when we sign the APK a new Meta-inf folder is created.
+The first of the exceptions is the Meta-inf file if you can see one in your extracted APK directory. This will need to be **deleted** before signing as when we sign the APK a new Meta-inf folder is created.
 
 Second exception, the resources.arsc file. Due to a requirement on Android R (version 11, API level 30) this file excpliciitly **must not** be compressed when we are remaking our APK. If this file is compressed the installation will fail and we will get this error:
 
