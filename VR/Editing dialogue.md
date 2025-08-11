@@ -30,4 +30,4 @@ incomplete
 
 
 
-grep -ri "String" <Desired Directory> --text
+grep -ri "String" {Desired Directory} --text
