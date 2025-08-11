@@ -26,3 +26,8 @@ Necessary tools:
 **Possibly asset studio(?)**
 
 incomplete
+
+
+
+
+grep -ri "String" <Desired Directory> --text
