@@ -33,6 +33,31 @@ Let's use "notpassword" as our test password:
 
 <img width="1096" height="160" alt="image" src="https://github.com/user-attachments/assets/072dcbe8-5669-4405-904d-3714ea84e644" />
 
+After adding this when we check x32dbg we can see our provided string being loaded into the stack:
+
+<img width="955" height="521" alt="image" src="https://github.com/user-attachments/assets/964f4663-4faa-4f07-a4b1-80d634968c12" />
+
+lets continue till we hit one of our breakpoints
+
+
+Here at this section we should pay a lot more attention:
+
+
+<img width="1192" height="416" alt="image" src="https://github.com/user-attachments/assets/435159f6-f606-4246-a2ab-ba78566d7ff6" />
+
+Here we can see comparisons and other steps taking place
+
+<img width="162" height="42" alt="image" src="https://github.com/user-attachments/assets/aa245823-5f79-4f43-ace9-b2c124ddd570" />
+
+Here we can find a JMP to a well-known function called STRLEN. With some rudimentary research we can see that see this function is used to calculate the length of a string
+
+Since a function is being called, it is obligatory that we have some parameters that are being passed. We are aware that the string is being passed as a paramter but we should understand how:
+
+Before a function is called, the parameter is moved to the top of the stack and then passed into the function
+
+
+
+
 
 
 
