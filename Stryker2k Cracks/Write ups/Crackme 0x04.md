@@ -24,6 +24,24 @@ Scrolling down we see the typical order that we are used too with the password p
 
 TBC-
 
+Let's select the restart button on the program and click the forward arrow until it reaches a stop:
+
+<img width="683" height="59" alt="image" src="https://github.com/user-attachments/assets/c956f367-b393-451b-863a-7063b7e81a79" />
+
+
+Let's use "notpassword" as our test password:
+
+<img width="1096" height="160" alt="image" src="https://github.com/user-attachments/assets/072dcbe8-5669-4405-904d-3714ea84e644" />
+
+
+
+
+
+
+
+
+
+
 
 
 
